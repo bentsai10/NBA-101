@@ -8,22 +8,37 @@
 
 import UIKit
 
+
+
+
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var teamTableView: UITableView!
     @IBOutlet weak var gameTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var teamEditToolbar: UIToolbar!
+    
+    var teamData = Teams()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         teamTableView.delegate = self
         teamTableView.dataSource = self
         gameTableView.delegate = self
         gameTableView.dataSource = self
+        teamData.getData {
+            DispatchQueue.main.async{
+                self.teamTableView.reloadData()
+            }
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barTintColor = .blue
+        self.navigationController?.toolbar.barTintColor = .blue
     }
 
-    var myTeams = ["Golden State Warriors", "Miami Heat", "Cleveland Cavaliers", "Boston Celtics"]
-    var myteams2 = ["Juventus", "Man U", "Real Madrid"]
     @IBAction func segmentedControlPressed(_ sender: UISegmentedControl) {
         if(sender.selectedSegmentIndex == 0){
             teamTableView.isHidden = false
@@ -36,26 +51,53 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ViewTeam"{
+            let destination = segue.destination as! TeamDetailViewController
+            let selectedIndexPath = teamTableView.indexPathForSelectedRow!
+            destination.teamInfo = teamData.teamArray[selectedIndexPath.row]
+            destination.playerInfo = Players(teamKey: teamData.teamArray[selectedIndexPath.row].Key)
+        }
+    }
+    @IBAction func unwindFromTeamDetail(segue: UIStoryboardSegue){
+        if segue.identifier == "ViewTeam"{
+            let source = segue.source as! TeamDetailViewController
+            let selectedIndexPath = teamTableView.indexPathForSelectedRow!
+            teamTableView.scrollToRow(at: selectedIndexPath, at: .bottom, animated: true)
+        }
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.teamTableView{
-            return myTeams.count
+            return teamData.teamArray.count
         }else{
-            return myteams2.count
+            return teamData.teamArray.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.teamTableView{
+            teamData.teamArray.sort(by: {$0.City < $1.City})
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TeamTableViewCell
-            cell.teamNameLabel.text = myTeams[indexPath.row]
+            cell.teamNameLabel.text = "\(teamData.teamArray[indexPath.row].City) \(teamData.teamArray[indexPath.row].Name)"
+            /*
+             API provides url to svg file. Had trouble converting svg. So manually extracted images as screenshots.
+             Then used backhalf of url as image names in asset catalog.
+            */
+            let logoOriginalImageName = teamData.teamArray[indexPath.row].WikipediaLogoUrl
+            var modifiedImageFileName = (logoOriginalImageName.suffix(from: logoOriginalImageName.lastIndex(of: "/")!))
+            modifiedImageFileName.removeFirst()
+            cell.logoImageView.image = UIImage(named: String(modifiedImageFileName))
+            //cell.players = Players(teamKey: teamData.teamArray[indexPath.row].Key)
+            
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath) as! GameTableViewCell
-            cell.homeTeamNameLabel.text = myteams2[indexPath.row]
-            cell.awayTeamNameLabel.text = myteams2[indexPath.row]
+            cell.homeTeamNameLabel.text = ""
+            cell.awayTeamNameLabel.text = ""
             cell.awayTeamScoreLabel.text = "\(indexPath.row)"
             cell.homeTeamScoreLabel.text = "\(indexPath.row)"
             

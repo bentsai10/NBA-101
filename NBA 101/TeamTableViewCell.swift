@@ -12,6 +12,8 @@ class TeamTableViewCell: UITableViewCell {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var teamNameLabel: UILabel!
     
+    var players: Players!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

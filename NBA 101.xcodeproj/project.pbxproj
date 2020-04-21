@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0F31DD244E9BCA00C1C308 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31DC244E9BCA00C1C308 /* PlayerInfo.swift */; };
+		1F0F31DF244E9D1600C1C308 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31DE244E9D1600C1C308 /* Players.swift */; };
+		1F0F31E1244EA2CB00C1C308 /* UIImageView + loadURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31E0244EA2CB00C1C308 /* UIImageView + loadURL.swift */; };
+		1F2996A0244E8E8F00A35C00 /* RosterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29969F244E8E8F00A35C00 /* RosterTableViewCell.swift */; };
+		1F2996A2244E911100A35C00 /* UIColor + hexString init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2996A1244E911100A35C00 /* UIColor + hexString init.swift */; };
+		1F412956244E6D3400B2F44C /* libSVGKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F412955244E6D3400B2F44C /* libSVGKit.a */; };
 		1F6D50DB244AA8E00052FD97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50DA244AA8E00052FD97 /* AppDelegate.swift */; };
 		1F6D50DD244AA8E00052FD97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50DC244AA8E00052FD97 /* SceneDelegate.swift */; };
 		1F6D50DF244AA8E00052FD97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50DE244AA8E00052FD97 /* ViewController.swift */; };
@@ -15,16 +21,24 @@
 		1F6D50E7244AA8E30052FD97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6D50E5244AA8E30052FD97 /* LaunchScreen.storyboard */; };
 		1F6D50EF244AB9C50052FD97 /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50EE244AB9C50052FD97 /* TeamTableViewCell.swift */; };
 		1F6D50F1244AB9D40052FD97 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50F0244AB9D40052FD97 /* GameTableViewCell.swift */; };
-		1F6D50F3244AC0BA0052FD97 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50F2244AC0BA0052FD97 /* TeamViewController.swift */; };
-		1F6D50F5244AC0C90052FD97 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50F4244AC0C90052FD97 /* GameViewController.swift */; };
+		1F6D50F3244AC0BA0052FD97 /* TeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50F2244AC0BA0052FD97 /* TeamDetailViewController.swift */; };
 		1F6D50F9244AC7790052FD97 /* AddTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50F8244AC7790052FD97 /* AddTeamViewController.swift */; };
 		1F6D50FB244AC78F0052FD97 /* AddTeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50FA244AC78F0052FD97 /* AddTeamTableViewCell.swift */; };
 		1FEF320D244D2B1300260A06 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF320C244D2B1300260A06 /* APIKeys.swift */; };
+		1FEF320F244D304200260A06 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF320E244D304200260A06 /* Teams.swift */; };
+		1FEF3211244D30A200260A06 /* TeamInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF3210244D30A200260A06 /* TeamInfo.swift */; };
 		9206C1CF6604D5891F659E6B /* libPods-NBA 101.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D914C9B83A3F291BB6F458E /* libPods-NBA 101.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D914C9B83A3F291BB6F458E /* libPods-NBA 101.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NBA 101.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0F31DC244E9BCA00C1C308 /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfo.swift; sourceTree = "<group>"; };
+		1F0F31DE244E9D1600C1C308 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
+		1F0F31E0244EA2CB00C1C308 /* UIImageView + loadURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + loadURL.swift"; sourceTree = "<group>"; };
+		1F29969F244E8E8F00A35C00 /* RosterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterTableViewCell.swift; sourceTree = "<group>"; };
+		1F2996A1244E911100A35C00 /* UIColor + hexString init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + hexString init.swift"; sourceTree = "<group>"; };
+		1F41294F244E6B3800B2F44C /* libSVGKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSVGKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F412955244E6D3400B2F44C /* libSVGKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSVGKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6D50D7244AA8E00052FD97 /* NBA 101.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NBA 101.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6D50DA244AA8E00052FD97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F6D50DC244AA8E00052FD97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,11 +49,12 @@
 		1F6D50E8244AA8E30052FD97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F6D50EE244AB9C50052FD97 /* TeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
 		1F6D50F0244AB9D40052FD97 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
-		1F6D50F2244AC0BA0052FD97 /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
-		1F6D50F4244AC0C90052FD97 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		1F6D50F2244AC0BA0052FD97 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailViewController.swift; sourceTree = "<group>"; };
 		1F6D50F8244AC7790052FD97 /* AddTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamViewController.swift; sourceTree = "<group>"; };
 		1F6D50FA244AC78F0052FD97 /* AddTeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamTableViewCell.swift; sourceTree = "<group>"; };
 		1FEF320C244D2B1300260A06 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		1FEF320E244D304200260A06 /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
+		1FEF3210244D30A200260A06 /* TeamInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInfo.swift; sourceTree = "<group>"; };
 		6B2DFA14632B0F4B4AE75B6B /* Pods-NBA 101.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBA 101.debug.xcconfig"; path = "Target Support Files/Pods-NBA 101/Pods-NBA 101.debug.xcconfig"; sourceTree = "<group>"; };
 		BABD4C8B97E6100CCD3EE3B2 /* Pods-NBA 101.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBA 101.release.xcconfig"; path = "Target Support Files/Pods-NBA 101/Pods-NBA 101.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9206C1CF6604D5891F659E6B /* libPods-NBA 101.a in Frameworks */,
+				1F412956244E6D3400B2F44C /* libSVGKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,13 +95,19 @@
 			children = (
 				1F6D50DA244AA8E00052FD97 /* AppDelegate.swift */,
 				1F6D50DC244AA8E00052FD97 /* SceneDelegate.swift */,
+				1F0F31DE244E9D1600C1C308 /* Players.swift */,
+				1F0F31DC244E9BCA00C1C308 /* PlayerInfo.swift */,
+				1FEF320E244D304200260A06 /* Teams.swift */,
+				1FEF3210244D30A200260A06 /* TeamInfo.swift */,
 				1F6D50DE244AA8E00052FD97 /* ViewController.swift */,
-				1F6D50F2244AC0BA0052FD97 /* TeamViewController.swift */,
-				1F6D50F8244AC7790052FD97 /* AddTeamViewController.swift */,
-				1F6D50F4244AC0C90052FD97 /* GameViewController.swift */,
 				1F6D50EE244AB9C50052FD97 /* TeamTableViewCell.swift */,
-				1F6D50FA244AC78F0052FD97 /* AddTeamTableViewCell.swift */,
 				1F6D50F0244AB9D40052FD97 /* GameTableViewCell.swift */,
+				1F6D50F8244AC7790052FD97 /* AddTeamViewController.swift */,
+				1F6D50FA244AC78F0052FD97 /* AddTeamTableViewCell.swift */,
+				1F6D50F2244AC0BA0052FD97 /* TeamDetailViewController.swift */,
+				1F29969F244E8E8F00A35C00 /* RosterTableViewCell.swift */,
+				1F2996A1244E911100A35C00 /* UIColor + hexString init.swift */,
+				1F0F31E0244EA2CB00C1C308 /* UIImageView + loadURL.swift */,
 				1F6D50E0244AA8E00052FD97 /* Main.storyboard */,
 				1F6D50E3244AA8E30052FD97 /* Assets.xcassets */,
 				1F6D50E5244AA8E30052FD97 /* LaunchScreen.storyboard */,
@@ -98,6 +120,8 @@
 		68BDC22585192FC759DEBD7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F412955244E6D3400B2F44C /* libSVGKit.a */,
+				1F41294F244E6B3800B2F44C /* libSVGKit.a */,
 				1D914C9B83A3F291BB6F458E /* libPods-NBA 101.a */,
 			);
 			name = Frameworks;
@@ -146,6 +170,7 @@
 				TargetAttributes = {
 					1F6D50D6244AA8E00052FD97 = {
 						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -227,16 +252,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F6D50F5244AC0C90052FD97 /* GameViewController.swift in Sources */,
+				1FEF3211244D30A200260A06 /* TeamInfo.swift in Sources */,
 				1F6D50FB244AC78F0052FD97 /* AddTeamTableViewCell.swift in Sources */,
 				1F6D50F1244AB9D40052FD97 /* GameTableViewCell.swift in Sources */,
-				1F6D50F3244AC0BA0052FD97 /* TeamViewController.swift in Sources */,
+				1F2996A0244E8E8F00A35C00 /* RosterTableViewCell.swift in Sources */,
+				1F0F31DD244E9BCA00C1C308 /* PlayerInfo.swift in Sources */,
+				1F0F31E1244EA2CB00C1C308 /* UIImageView + loadURL.swift in Sources */,
+				1F6D50F3244AC0BA0052FD97 /* TeamDetailViewController.swift in Sources */,
 				1F6D50EF244AB9C50052FD97 /* TeamTableViewCell.swift in Sources */,
+				1F0F31DF244E9D1600C1C308 /* Players.swift in Sources */,
+				1FEF320F244D304200260A06 /* Teams.swift in Sources */,
 				1F6D50DF244AA8E00052FD97 /* ViewController.swift in Sources */,
 				1FEF320D244D2B1300260A06 /* APIKeys.swift in Sources */,
 				1F6D50F9244AC7790052FD97 /* AddTeamViewController.swift in Sources */,
 				1F6D50DB244AA8E00052FD97 /* AppDelegate.swift in Sources */,
 				1F6D50DD244AA8E00052FD97 /* SceneDelegate.swift in Sources */,
+				1F2996A2244E911100A35C00 /* UIColor + hexString init.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +412,7 @@
 			baseConfigurationReference = 6B2DFA14632B0F4B4AE75B6B /* Pods-NBA 101.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9LM68CGF2F;
 				INFOPLIST_FILE = "NBA 101/Info.plist";
@@ -390,6 +422,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bentsai.NBA-101";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NBA 101/NBA 101-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -400,6 +434,7 @@
 			baseConfigurationReference = BABD4C8B97E6100CCD3EE3B2 /* Pods-NBA 101.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9LM68CGF2F;
 				INFOPLIST_FILE = "NBA 101/Info.plist";
@@ -409,6 +444,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bentsai.NBA-101";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NBA 101/NBA 101-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
