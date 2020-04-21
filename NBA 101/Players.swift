@@ -40,7 +40,6 @@ class Players{
 
     func getData(completed: @escaping ()->()){
         let urlString = url
-        print(urlString)
         guard let url = URL(string: urlString)else{
             print("Error")
             completed()
@@ -56,7 +55,7 @@ class Players{
                 let returned = try JSONDecoder().decode([PlayerInfo].self, from: data!)
                 self.playerArray = self.playerArray + returned
             }catch{
-                print("error bitch")
+                print("error")
             }
             completed()
         }

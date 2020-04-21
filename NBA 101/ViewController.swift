@@ -57,6 +57,20 @@ class ViewController: UIViewController {
             let selectedIndexPath = teamTableView.indexPathForSelectedRow!
             destination.teamInfo = teamData.teamArray[selectedIndexPath.row]
             destination.playerInfo = Players(teamKey: teamData.teamArray[selectedIndexPath.row].Key)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy"
+            let year = dateFormatter.string(from: Date())
+            dateFormatter.dateFormat = "LLLL"
+            let month = dateFormatter.string(from: Date())
+            //conditionals to account for NBA season spanning tail end of one year and beginning of next
+            var laterMonths = ["October", "November", "December"]
+            if laterMonths.contains(month){
+                var yearInt = Int(year)!+1
+                destination.standingsInfo = Standings(seasonKey: String(yearInt))
+            }else{
+                destination.standingsInfo = Standings(seasonKey: year)
+            }
+            
         }
     }
     @IBAction func unwindFromTeamDetail(segue: UIStoryboardSegue){
@@ -91,7 +105,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             var modifiedImageFileName = (logoOriginalImageName.suffix(from: logoOriginalImageName.lastIndex(of: "/")!))
             modifiedImageFileName.removeFirst()
             cell.logoImageView.image = UIImage(named: String(modifiedImageFileName))
-            //cell.players = Players(teamKey: teamData.teamArray[indexPath.row].Key)
             
             return cell
         }else{

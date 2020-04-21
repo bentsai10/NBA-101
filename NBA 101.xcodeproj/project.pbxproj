@@ -10,6 +10,12 @@
 		1F0F31DD244E9BCA00C1C308 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31DC244E9BCA00C1C308 /* PlayerInfo.swift */; };
 		1F0F31DF244E9D1600C1C308 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31DE244E9D1600C1C308 /* Players.swift */; };
 		1F0F31E1244EA2CB00C1C308 /* UIImageView + loadURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31E0244EA2CB00C1C308 /* UIImageView + loadURL.swift */; };
+		1F0F31E3244EB0AC00C1C308 /* ArenaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31E2244EB0AC00C1C308 /* ArenaInfo.swift */; };
+		1F0F31E5244EB0B900C1C308 /* Arenas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31E4244EB0B900C1C308 /* Arenas.swift */; };
+		1F0F31E7244EB0EA00C1C308 /* StandingsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31E6244EB0EA00C1C308 /* StandingsInfo.swift */; };
+		1F0F31E9244EB0F200C1C308 /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31E8244EB0F200C1C308 /* Standings.swift */; };
+		1F0F31EB244EE47800C1C308 /* StandingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31EA244EE47800C1C308 /* StandingsTableViewCell.swift */; };
+		1F0F31ED244F121600C1C308 /* CustomScheduleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31EC244F121600C1C308 /* CustomScheduleHeader.swift */; };
 		1F2996A0244E8E8F00A35C00 /* RosterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29969F244E8E8F00A35C00 /* RosterTableViewCell.swift */; };
 		1F2996A2244E911100A35C00 /* UIColor + hexString init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2996A1244E911100A35C00 /* UIColor + hexString init.swift */; };
 		1F412956244E6D3400B2F44C /* libSVGKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F412955244E6D3400B2F44C /* libSVGKit.a */; };
@@ -35,6 +41,12 @@
 		1F0F31DC244E9BCA00C1C308 /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfo.swift; sourceTree = "<group>"; };
 		1F0F31DE244E9D1600C1C308 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		1F0F31E0244EA2CB00C1C308 /* UIImageView + loadURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + loadURL.swift"; sourceTree = "<group>"; };
+		1F0F31E2244EB0AC00C1C308 /* ArenaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaInfo.swift; sourceTree = "<group>"; };
+		1F0F31E4244EB0B900C1C308 /* Arenas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arenas.swift; sourceTree = "<group>"; };
+		1F0F31E6244EB0EA00C1C308 /* StandingsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsInfo.swift; sourceTree = "<group>"; };
+		1F0F31E8244EB0F200C1C308 /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
+		1F0F31EA244EE47800C1C308 /* StandingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsTableViewCell.swift; sourceTree = "<group>"; };
+		1F0F31EC244F121600C1C308 /* CustomScheduleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScheduleHeader.swift; sourceTree = "<group>"; };
 		1F29969F244E8E8F00A35C00 /* RosterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterTableViewCell.swift; sourceTree = "<group>"; };
 		1F2996A1244E911100A35C00 /* UIColor + hexString init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + hexString init.swift"; sourceTree = "<group>"; };
 		1F41294F244E6B3800B2F44C /* libSVGKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSVGKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,17 +107,23 @@
 			children = (
 				1F6D50DA244AA8E00052FD97 /* AppDelegate.swift */,
 				1F6D50DC244AA8E00052FD97 /* SceneDelegate.swift */,
+				1F0F31E8244EB0F200C1C308 /* Standings.swift */,
+				1F0F31E6244EB0EA00C1C308 /* StandingsInfo.swift */,
+				1F0F31E4244EB0B900C1C308 /* Arenas.swift */,
+				1F0F31E2244EB0AC00C1C308 /* ArenaInfo.swift */,
 				1F0F31DE244E9D1600C1C308 /* Players.swift */,
 				1F0F31DC244E9BCA00C1C308 /* PlayerInfo.swift */,
 				1FEF320E244D304200260A06 /* Teams.swift */,
 				1FEF3210244D30A200260A06 /* TeamInfo.swift */,
 				1F6D50DE244AA8E00052FD97 /* ViewController.swift */,
-				1F6D50EE244AB9C50052FD97 /* TeamTableViewCell.swift */,
-				1F6D50F0244AB9D40052FD97 /* GameTableViewCell.swift */,
 				1F6D50F8244AC7790052FD97 /* AddTeamViewController.swift */,
-				1F6D50FA244AC78F0052FD97 /* AddTeamTableViewCell.swift */,
 				1F6D50F2244AC0BA0052FD97 /* TeamDetailViewController.swift */,
+				1F6D50EE244AB9C50052FD97 /* TeamTableViewCell.swift */,
+				1F6D50FA244AC78F0052FD97 /* AddTeamTableViewCell.swift */,
 				1F29969F244E8E8F00A35C00 /* RosterTableViewCell.swift */,
+				1F0F31EA244EE47800C1C308 /* StandingsTableViewCell.swift */,
+				1F6D50F0244AB9D40052FD97 /* GameTableViewCell.swift */,
+				1F0F31EC244F121600C1C308 /* CustomScheduleHeader.swift */,
 				1F2996A1244E911100A35C00 /* UIColor + hexString init.swift */,
 				1F0F31E0244EA2CB00C1C308 /* UIImageView + loadURL.swift */,
 				1F6D50E0244AA8E00052FD97 /* Main.storyboard */,
@@ -253,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FEF3211244D30A200260A06 /* TeamInfo.swift in Sources */,
+				1F0F31E3244EB0AC00C1C308 /* ArenaInfo.swift in Sources */,
 				1F6D50FB244AC78F0052FD97 /* AddTeamTableViewCell.swift in Sources */,
 				1F6D50F1244AB9D40052FD97 /* GameTableViewCell.swift in Sources */,
 				1F2996A0244E8E8F00A35C00 /* RosterTableViewCell.swift in Sources */,
@@ -262,11 +281,16 @@
 				1F6D50EF244AB9C50052FD97 /* TeamTableViewCell.swift in Sources */,
 				1F0F31DF244E9D1600C1C308 /* Players.swift in Sources */,
 				1FEF320F244D304200260A06 /* Teams.swift in Sources */,
+				1F0F31E7244EB0EA00C1C308 /* StandingsInfo.swift in Sources */,
 				1F6D50DF244AA8E00052FD97 /* ViewController.swift in Sources */,
+				1F0F31E9244EB0F200C1C308 /* Standings.swift in Sources */,
 				1FEF320D244D2B1300260A06 /* APIKeys.swift in Sources */,
 				1F6D50F9244AC7790052FD97 /* AddTeamViewController.swift in Sources */,
+				1F0F31ED244F121600C1C308 /* CustomScheduleHeader.swift in Sources */,
 				1F6D50DB244AA8E00052FD97 /* AppDelegate.swift in Sources */,
+				1F0F31E5244EB0B900C1C308 /* Arenas.swift in Sources */,
 				1F6D50DD244AA8E00052FD97 /* SceneDelegate.swift in Sources */,
+				1F0F31EB244EE47800C1C308 /* StandingsTableViewCell.swift in Sources */,
 				1F2996A2244E911100A35C00 /* UIColor + hexString init.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
