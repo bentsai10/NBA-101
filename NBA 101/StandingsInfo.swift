@@ -9,7 +9,6 @@
 import UIKit
 
 struct StandingsInfo: Codable{
-    var City: String
     var Conference: String
     var Name: String
     var Wins: Int

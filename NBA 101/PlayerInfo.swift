@@ -9,6 +9,7 @@
 import UIKit
 
 struct PlayerInfo: Codable{
+    var PlayerID: Int
     var Team: String
     var Jersey: Int
     var Position: String
@@ -16,11 +17,11 @@ struct PlayerInfo: Codable{
     var LastName: String
     var Height: Int
     var Weight: Int
-    //var BirthDate: Date
-    //var BirthCity: String
-    //var BirthState: String
-    //var College: String
-    //var Salary: Int
+    var BirthDate: String?
+    var BirthCity: String?
+    var BirthState: String?
+    var College: String?
+    var Salary: Int?
     var PhotoUrl: String
     var Experience: Int
 }

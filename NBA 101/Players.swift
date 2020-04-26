@@ -21,6 +21,7 @@ class Players{
     }
     
     private struct Returned: Codable {
+        var PlayerID: Int
         var Team: String
         var Jersey: Int
         var Position: String
@@ -28,11 +29,11 @@ class Players{
         var LastName: String
         var Height: Int
         var Weight: Int
-        //var BirthDate: Date
-        //var BirthCity: String
-        //var BirthState: String
-        var College: String
-        var Salary: Int
+        var BirthDate: String?
+        var BirthCity: String?
+        var BirthState: String?
+        var College: String?
+        var Salary: Int?
         var PhotoUrl: String
         var Experience: Int
         
@@ -55,7 +56,7 @@ class Players{
                 let returned = try JSONDecoder().decode([PlayerInfo].self, from: data!)
                 self.playerArray = self.playerArray + returned
             }catch{
-                print("error")
+                print("error getting players")
             }
             completed()
         }

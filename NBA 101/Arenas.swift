@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class Arenas{
     var url: String = "https://api.sportsdata.io/v3/nba/scores/json/Stadiums?key=\(APIKeys.sportsDataNBAKey)"
@@ -15,12 +16,11 @@ class Arenas{
     private struct Returned: Codable {
         var StadiumID: Int
         var Name: String
+        var Address: String?
         var City: String
-        var State: String
-        var Zip: String
-        var Capacity: Int
-        var GeoLat: Double
-        var GeoLong: Double
+        var State: String?
+        var GeoLat: Double?
+        var GeoLong: Double?
     }
     
     func getData(completed: @escaping ()->()){
@@ -40,7 +40,7 @@ class Arenas{
                 let returned = try JSONDecoder().decode([ArenaInfo].self, from: data!)
                 self.arenaArray = self.arenaArray + returned
             }catch{
-                print("error yeet")
+                print("error getting arenas")
             }
             completed()
         }

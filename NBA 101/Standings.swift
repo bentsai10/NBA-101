@@ -21,7 +21,6 @@ class Standings{
     }
     
     private struct Returned: Codable {
-        var City: String
         var Conference: String
         var Name: String
         var Wins: Int
@@ -47,7 +46,7 @@ class Standings{
                 self.standingsArray = self.standingsArray + returned
 
             }catch{
-                print("error")
+                print("error getting standings")
             }
             completed()
         }

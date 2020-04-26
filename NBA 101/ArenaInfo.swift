@@ -7,14 +7,14 @@
 //
 
 import UIKit
+import MapKit
 
 struct ArenaInfo: Codable{
     var StadiumID: Int
     var Name: String
+    var Address: String?
     var City: String
-    var State: String
-    var Zip: String
-    var Capacity: Int
-    var GeoLat: Double
-    var GeoLong: Double
+    var State: String?
+    var GeoLat: Double?
+    var GeoLong: Double?
 }

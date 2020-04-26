@@ -14,12 +14,11 @@ class Teams{
     var teamArray: [TeamInfo] = []
     
     private struct Returned: Codable {
+        var TeamID: Int
         var Key: String
         var City: String
         var Name: String
         var StadiumID: Int
-        var Conference: String
-        var Division: String
         var PrimaryColor: String
         var SecondaryColor: String
         var WikipediaLogoUrl: String
@@ -42,7 +41,7 @@ class Teams{
                 let returned = try JSONDecoder().decode([TeamInfo].self, from: data!)
                 self.teamArray = self.teamArray + returned
             }catch{
-                print("error")
+                print("error getting teams")
             }
             completed()
         }

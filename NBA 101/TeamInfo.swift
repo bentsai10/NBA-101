@@ -9,12 +9,11 @@
 import UIKit
 
 struct TeamInfo: Codable{
+    var TeamID: Int
     var Key: String
     var City: String
     var Name: String
     var StadiumID: Int
-    var Conference: String
-    var Division: String
     var PrimaryColor: String
     var SecondaryColor: String
     var WikipediaLogoUrl: String

@@ -15,7 +15,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var teamTableView: UITableView!
-    @IBOutlet weak var gameTableView: UITableView!
+    @IBOutlet weak var playerTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var teamEditToolbar: UIToolbar!
     
@@ -25,8 +25,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         teamTableView.delegate = self
         teamTableView.dataSource = self
-        gameTableView.delegate = self
-        gameTableView.dataSource = self
+        playerTableView.delegate = self
+        playerTableView.dataSource = self
         teamData.getData {
             DispatchQueue.main.async{
                 self.teamTableView.reloadData()
@@ -42,11 +42,11 @@ class ViewController: UIViewController {
     @IBAction func segmentedControlPressed(_ sender: UISegmentedControl) {
         if(sender.selectedSegmentIndex == 0){
             teamTableView.isHidden = false
-            gameTableView.isHidden = true
+            playerTableView.isHidden = true
             teamEditToolbar.isHidden = false
         }else{
             teamTableView.isHidden = true
-            gameTableView.isHidden = false
+            playerTableView.isHidden = false
             teamEditToolbar.isHidden = true
         }
     }
@@ -55,6 +55,7 @@ class ViewController: UIViewController {
         if segue.identifier == "ViewTeam"{
             let destination = segue.destination as! TeamDetailViewController
             let selectedIndexPath = teamTableView.indexPathForSelectedRow!
+            destination.teams = teamData
             destination.teamInfo = teamData.teamArray[selectedIndexPath.row]
             destination.playerInfo = Players(teamKey: teamData.teamArray[selectedIndexPath.row].Key)
             let dateFormatter = DateFormatter()
@@ -67,8 +68,10 @@ class ViewController: UIViewController {
             if laterMonths.contains(month){
                 var yearInt = Int(year)!+1
                 destination.standingsInfo = Standings(seasonKey: String(yearInt))
+                destination.scheduleInfo = Schedules(seasonKey: String(yearInt))
             }else{
                 destination.standingsInfo = Standings(seasonKey: year)
+                destination.scheduleInfo = Schedules(seasonKey: String(year))
             }
             
         }
@@ -80,6 +83,8 @@ class ViewController: UIViewController {
             teamTableView.scrollToRow(at: selectedIndexPath, at: .bottom, animated: true)
         }
     }
+    
+    
     
 }
 
@@ -95,7 +100,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.teamTableView{
             teamData.teamArray.sort(by: {$0.City < $1.City})
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TeamTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath) as! TeamTableViewCell
             cell.teamNameLabel.text = "\(teamData.teamArray[indexPath.row].City) \(teamData.teamArray[indexPath.row].Name)"
             /*
              API provides url to svg file. Had trouble converting svg. So manually extracted images as screenshots.
@@ -108,18 +113,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath) as! GameTableViewCell
-            cell.homeTeamNameLabel.text = ""
-            cell.awayTeamNameLabel.text = ""
-            cell.awayTeamScoreLabel.text = "\(indexPath.row)"
-            cell.homeTeamScoreLabel.text = "\(indexPath.row)"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PlayerCell", for: indexPath) as! RosterTableViewCell
             
             return cell
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if tableView == self.gameTableView{
-            return 100
+        if tableView == self.playerTableView{
+            return 85
         }
         return 60
     }
