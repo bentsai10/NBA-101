@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F08B9512456224900D364BB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F08B9502456224900D364BB /* Player.swift */; };
+		1F08B9532456227300D364BB /* PlayerPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F08B9522456227300D364BB /* PlayerPhoto.swift */; };
+		1F08B9552456231700D364BB /* PlayerPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F08B9542456231700D364BB /* PlayerPhotos.swift */; };
+		1F08B9572456251800D364BB /* PlayerPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F08B9562456251800D364BB /* PlayerPhotoCollectionViewCell.swift */; };
 		1F0F31DD244E9BCA00C1C308 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31DC244E9BCA00C1C308 /* PlayerInfo.swift */; };
 		1F0F31DF244E9D1600C1C308 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31DE244E9D1600C1C308 /* Players.swift */; };
 		1F0F31E1244EA2CB00C1C308 /* UIImageView + loadURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F31E0244EA2CB00C1C308 /* UIImageView + loadURL.swift */; };
@@ -24,6 +28,7 @@
 		1F3733392453D0AB00818410 /* StatisticsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3733382453D0AB00818410 /* StatisticsInfo.swift */; };
 		1F37333B2453D0D100818410 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37333A2453D0D100818410 /* Statistics.swift */; };
 		1F37333D2453D4F400818410 /* StatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37333C2453D4F400818410 /* StatisticsTableViewCell.swift */; };
+		1F5B6CFE2455630900B545A5 /* FavoriteTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5B6CFD2455630900B545A5 /* FavoriteTeam.swift */; };
 		1F6D50DB244AA8E00052FD97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50DA244AA8E00052FD97 /* AppDelegate.swift */; };
 		1F6D50DD244AA8E00052FD97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50DC244AA8E00052FD97 /* SceneDelegate.swift */; };
 		1F6D50DF244AA8E00052FD97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50DE244AA8E00052FD97 /* ViewController.swift */; };
@@ -33,18 +38,23 @@
 		1F6D50EF244AB9C50052FD97 /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50EE244AB9C50052FD97 /* TeamTableViewCell.swift */; };
 		1F6D50F1244AB9D40052FD97 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50F0244AB9D40052FD97 /* GameTableViewCell.swift */; };
 		1F6D50F3244AC0BA0052FD97 /* TeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50F2244AC0BA0052FD97 /* TeamDetailViewController.swift */; };
-		1F6D50F9244AC7790052FD97 /* AddTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50F8244AC7790052FD97 /* AddTeamViewController.swift */; };
 		1F6D50FB244AC78F0052FD97 /* AddTeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D50FA244AC78F0052FD97 /* AddTeamTableViewCell.swift */; };
+		1F6F805A24560F8F00F52997 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F805924560F8F00F52997 /* Team.swift */; };
+		1F6F805C24560F9B00F52997 /* AllTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F805B24560F9B00F52997 /* AllTeams.swift */; };
 		1FCB1AA02451151200CBAA11 /* ScheduleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB1A9F2451151200CBAA11 /* ScheduleInfo.swift */; };
 		1FCB1AA22451152200CBAA11 /* Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB1AA12451152200CBAA11 /* Schedules.swift */; };
+		1FE6FF1E2455C71200B5B320 /* AddTeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE6FF1D2455C71200B5B320 /* AddTeamTableViewController.swift */; };
 		1FEF320D244D2B1300260A06 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF320C244D2B1300260A06 /* APIKeys.swift */; };
-		1FEF320F244D304200260A06 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF320E244D304200260A06 /* Teams.swift */; };
+		1FEF320F244D304200260A06 /* FavoriteTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF320E244D304200260A06 /* FavoriteTeams.swift */; };
 		1FEF3211244D30A200260A06 /* TeamInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEF3210244D30A200260A06 /* TeamInfo.swift */; };
-		9206C1CF6604D5891F659E6B /* libPods-NBA 101.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D914C9B83A3F291BB6F458E /* libPods-NBA 101.a */; };
+		DDBB0A8D0BC35CD4F33507C3 /* Pods_NBA_101.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAF12F990A2AC884FE3349E /* Pods_NBA_101.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1D914C9B83A3F291BB6F458E /* libPods-NBA 101.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NBA 101.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F08B9502456224900D364BB /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1F08B9522456227300D364BB /* PlayerPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPhoto.swift; sourceTree = "<group>"; };
+		1F08B9542456231700D364BB /* PlayerPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPhotos.swift; sourceTree = "<group>"; };
+		1F08B9562456251800D364BB /* PlayerPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F0F31DC244E9BCA00C1C308 /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfo.swift; sourceTree = "<group>"; };
 		1F0F31DE244E9D1600C1C308 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		1F0F31E0244EA2CB00C1C308 /* UIImageView + loadURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + loadURL.swift"; sourceTree = "<group>"; };
@@ -57,6 +67,31 @@
 		1F0F31EE244FDA3E00C1C308 /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
 		1F0F31F0244FF0F700C1C308 /* Arena.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arena.swift; sourceTree = "<group>"; };
 		1F16D32D2455419B001B8C82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		1F16D32F245542D2001B8C82 /* FirebaseAnonymousAuthUI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FirebaseAnonymousAuthUI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D330245542D2001B8C82 /* FirebaseAuthUI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FirebaseAuthUI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D331245542D2001B8C82 /* FirebaseEmailAuthUI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FirebaseEmailAuthUI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D332245542D2001B8C82 /* FirebaseFacebookAuthUI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FirebaseFacebookAuthUI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D333245542D2001B8C82 /* FirebaseGoogleAuthUI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FirebaseGoogleAuthUI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D334245542D2001B8C82 /* FirebasePhoneAuthUI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FirebasePhoneAuthUI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D335245542D2001B8C82 /* gRPCCertificates-Cpp.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = "gRPCCertificates-Cpp.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D336245542D2001B8C82 /* libabseil.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libabseil.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D337245542D2001B8C82 /* libBoringSSL-GRPC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libBoringSSL-GRPC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D338245542D2001B8C82 /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFBSDKCoreKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D339245542D2001B8C82 /* libFBSDKLoginKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFBSDKLoginKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D33A245542D2001B8C82 /* libFirebaseAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseAuth.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D33B245542D2001B8C82 /* libFirebaseCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D33C245542D2001B8C82 /* libFirebaseCoreDiagnostics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseCoreDiagnostics.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D33D245542D2001B8C82 /* libFirebaseDatabase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseDatabase.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D33E245542D2001B8C82 /* libFirebaseFirestore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseFirestore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D33F245542D2001B8C82 /* libFirebaseInstallations.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseInstallations.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D340245542D2001B8C82 /* libFirebaseStorage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D341245542D2001B8C82 /* libFirebaseUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D342245542D2001B8C82 /* libGoogleDataTransport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libGoogleDataTransport.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D343245542D2001B8C82 /* libGoogleDataTransportCCTSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libGoogleDataTransportCCTSupport.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D344245542D2001B8C82 /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libGoogleToolboxForMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D345245542D2001B8C82 /* libGoogleUtilities.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libGoogleUtilities.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D346245542D2001B8C82 /* libGTMSessionFetcher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libGTMSessionFetcher.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F16D347245542D2001B8C82 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F29969F244E8E8F00A35C00 /* RosterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterTableViewCell.swift; sourceTree = "<group>"; };
 		1F2996A1244E911100A35C00 /* UIColor + hexString init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + hexString init.swift"; sourceTree = "<group>"; };
 		1F3733382453D0AB00818410 /* StatisticsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsInfo.swift; sourceTree = "<group>"; };
@@ -64,6 +99,7 @@
 		1F37333C2453D4F400818410 /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		1F41294F244E6B3800B2F44C /* libSVGKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSVGKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F412955244E6D3400B2F44C /* libSVGKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSVGKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F5B6CFD2455630900B545A5 /* FavoriteTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTeam.swift; sourceTree = "<group>"; };
 		1F6D50D7244AA8E00052FD97 /* NBA 101.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NBA 101.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6D50DA244AA8E00052FD97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F6D50DC244AA8E00052FD97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,16 +111,21 @@
 		1F6D50EE244AB9C50052FD97 /* TeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
 		1F6D50F0244AB9D40052FD97 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		1F6D50F2244AC0BA0052FD97 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailViewController.swift; sourceTree = "<group>"; };
-		1F6D50F8244AC7790052FD97 /* AddTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamViewController.swift; sourceTree = "<group>"; };
 		1F6D50FA244AC78F0052FD97 /* AddTeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamTableViewCell.swift; sourceTree = "<group>"; };
+		1F6F805924560F8F00F52997 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		1F6F805B24560F9B00F52997 /* AllTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTeams.swift; sourceTree = "<group>"; };
 		1FAE5F0824511FCA002C20FB /* libJTAppleCalendar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libJTAppleCalendar.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCB1A9F2451151200CBAA11 /* ScheduleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleInfo.swift; sourceTree = "<group>"; };
 		1FCB1AA12451152200CBAA11 /* Schedules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedules.swift; sourceTree = "<group>"; };
+		1FCFACF024554CA6006A7654 /* FirebaseAuthUI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FirebaseAuthUI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FCFACF124554CA6006A7654 /* FirebaseGoogleAuthUI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FirebaseGoogleAuthUI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FE6FF1D2455C71200B5B320 /* AddTeamTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamTableViewController.swift; sourceTree = "<group>"; };
 		1FEF320C244D2B1300260A06 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
-		1FEF320E244D304200260A06 /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
+		1FEF320E244D304200260A06 /* FavoriteTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTeams.swift; sourceTree = "<group>"; };
 		1FEF3210244D30A200260A06 /* TeamInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInfo.swift; sourceTree = "<group>"; };
 		6B2DFA14632B0F4B4AE75B6B /* Pods-NBA 101.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBA 101.debug.xcconfig"; path = "Target Support Files/Pods-NBA 101/Pods-NBA 101.debug.xcconfig"; sourceTree = "<group>"; };
 		BABD4C8B97E6100CCD3EE3B2 /* Pods-NBA 101.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBA 101.release.xcconfig"; path = "Target Support Files/Pods-NBA 101/Pods-NBA 101.release.xcconfig"; sourceTree = "<group>"; };
+		EBAF12F990A2AC884FE3349E /* Pods_NBA_101.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBA_101.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9206C1CF6604D5891F659E6B /* libPods-NBA 101.a in Frameworks */,
+				DDBB0A8D0BC35CD4F33507C3 /* Pods_NBA_101.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,14 +180,20 @@
 				1F0F31E8244EB0F200C1C308 /* Standings.swift */,
 				1F0F31E6244EB0EA00C1C308 /* StandingsInfo.swift */,
 				1F0F31E4244EB0B900C1C308 /* Arenas.swift */,
-				1F0F31E2244EB0AC00C1C308 /* ArenaInfo.swift */,
 				1F0F31F0244FF0F700C1C308 /* Arena.swift */,
-				1FEF320E244D304200260A06 /* Teams.swift */,
-				1FEF3210244D30A200260A06 /* TeamInfo.swift */,
+				1F0F31E2244EB0AC00C1C308 /* ArenaInfo.swift */,
+				1F08B9542456231700D364BB /* PlayerPhotos.swift */,
+				1F08B9522456227300D364BB /* PlayerPhoto.swift */,
 				1F0F31DE244E9D1600C1C308 /* Players.swift */,
+				1F08B9502456224900D364BB /* Player.swift */,
 				1F0F31DC244E9BCA00C1C308 /* PlayerInfo.swift */,
+				1FEF320E244D304200260A06 /* FavoriteTeams.swift */,
+				1F5B6CFD2455630900B545A5 /* FavoriteTeam.swift */,
+				1F6F805B24560F9B00F52997 /* AllTeams.swift */,
+				1F6F805924560F8F00F52997 /* Team.swift */,
+				1FEF3210244D30A200260A06 /* TeamInfo.swift */,
 				1F6D50DE244AA8E00052FD97 /* ViewController.swift */,
-				1F6D50F8244AC7790052FD97 /* AddTeamViewController.swift */,
+				1FE6FF1D2455C71200B5B320 /* AddTeamTableViewController.swift */,
 				1F6D50F2244AC0BA0052FD97 /* TeamDetailViewController.swift */,
 				1F0F31EE244FDA3E00C1C308 /* PlayerDetailViewController.swift */,
 				1F6D50EE244AB9C50052FD97 /* TeamTableViewCell.swift */,
@@ -155,6 +202,7 @@
 				1F0F31EA244EE47800C1C308 /* StandingsTableViewCell.swift */,
 				1F6D50F0244AB9D40052FD97 /* GameTableViewCell.swift */,
 				1F37333C2453D4F400818410 /* StatisticsTableViewCell.swift */,
+				1F08B9562456251800D364BB /* PlayerPhotoCollectionViewCell.swift */,
 				1F3733372453BED100818410 /* Extensions */,
 				1F6D50E0244AA8E00052FD97 /* Main.storyboard */,
 				1F6D50E3244AA8E30052FD97 /* Assets.xcassets */,
@@ -169,10 +217,37 @@
 		68BDC22585192FC759DEBD7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FCFACF024554CA6006A7654 /* FirebaseAuthUI.bundle */,
+				1FCFACF124554CA6006A7654 /* FirebaseGoogleAuthUI.bundle */,
+				1F16D32F245542D2001B8C82 /* FirebaseAnonymousAuthUI.bundle */,
+				1F16D330245542D2001B8C82 /* FirebaseAuthUI.bundle */,
+				1F16D331245542D2001B8C82 /* FirebaseEmailAuthUI.bundle */,
+				1F16D332245542D2001B8C82 /* FirebaseFacebookAuthUI.bundle */,
+				1F16D333245542D2001B8C82 /* FirebaseGoogleAuthUI.bundle */,
+				1F16D334245542D2001B8C82 /* FirebasePhoneAuthUI.bundle */,
+				1F16D335245542D2001B8C82 /* gRPCCertificates-Cpp.bundle */,
+				1F16D336245542D2001B8C82 /* libabseil.a */,
+				1F16D337245542D2001B8C82 /* libBoringSSL-GRPC.a */,
+				1F16D338245542D2001B8C82 /* libFBSDKCoreKit.a */,
+				1F16D339245542D2001B8C82 /* libFBSDKLoginKit.a */,
+				1F16D33A245542D2001B8C82 /* libFirebaseAuth.a */,
+				1F16D33B245542D2001B8C82 /* libFirebaseCore.a */,
+				1F16D33C245542D2001B8C82 /* libFirebaseCoreDiagnostics.a */,
+				1F16D33D245542D2001B8C82 /* libFirebaseDatabase.a */,
+				1F16D33E245542D2001B8C82 /* libFirebaseFirestore.a */,
+				1F16D33F245542D2001B8C82 /* libFirebaseInstallations.a */,
+				1F16D340245542D2001B8C82 /* libFirebaseStorage.a */,
+				1F16D341245542D2001B8C82 /* libFirebaseUI.a */,
+				1F16D342245542D2001B8C82 /* libGoogleDataTransport.a */,
+				1F16D343245542D2001B8C82 /* libGoogleDataTransportCCTSupport.a */,
+				1F16D344245542D2001B8C82 /* libGoogleToolboxForMac.a */,
+				1F16D345245542D2001B8C82 /* libGoogleUtilities.a */,
+				1F16D346245542D2001B8C82 /* libGTMSessionFetcher.a */,
+				1F16D347245542D2001B8C82 /* libSDWebImage.a */,
 				1FAE5F0824511FCA002C20FB /* libJTAppleCalendar.a */,
 				1F412955244E6D3400B2F44C /* libSVGKit.a */,
 				1F41294F244E6B3800B2F44C /* libSVGKit.a */,
-				1D914C9B83A3F291BB6F458E /* libPods-NBA 101.a */,
+				EBAF12F990A2AC884FE3349E /* Pods_NBA_101.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -198,6 +273,7 @@
 				1F6D50D4244AA8E00052FD97 /* Frameworks */,
 				1F6D50D5244AA8E00052FD97 /* Resources */,
 				FF203C5D9587482978F0463A /* [CP] Copy Pods Resources */,
+				F20CF11E7FE684794B5CFAF3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -279,6 +355,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F20CF11E7FE684794B5CFAF3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NBA 101/Pods-NBA 101-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NBA 101/Pods-NBA 101-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NBA 101/Pods-NBA 101-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FF203C5D9587482978F0463A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,6 +400,8 @@
 				1F0F31E3244EB0AC00C1C308 /* ArenaInfo.swift in Sources */,
 				1F6D50FB244AC78F0052FD97 /* AddTeamTableViewCell.swift in Sources */,
 				1F6D50F1244AB9D40052FD97 /* GameTableViewCell.swift in Sources */,
+				1F08B9552456231700D364BB /* PlayerPhotos.swift in Sources */,
+				1FE6FF1E2455C71200B5B320 /* AddTeamTableViewController.swift in Sources */,
 				1F2996A0244E8E8F00A35C00 /* RosterTableViewCell.swift in Sources */,
 				1F0F31EF244FDA3E00C1C308 /* PlayerDetailViewController.swift in Sources */,
 				1F37333D2453D4F400818410 /* StatisticsTableViewCell.swift in Sources */,
@@ -314,16 +409,21 @@
 				1F0F31E1244EA2CB00C1C308 /* UIImageView + loadURL.swift in Sources */,
 				1F6D50F3244AC0BA0052FD97 /* TeamDetailViewController.swift in Sources */,
 				1F6D50EF244AB9C50052FD97 /* TeamTableViewCell.swift in Sources */,
+				1F6F805A24560F8F00F52997 /* Team.swift in Sources */,
 				1F0F31DF244E9D1600C1C308 /* Players.swift in Sources */,
 				1FCB1AA02451151200CBAA11 /* ScheduleInfo.swift in Sources */,
-				1FEF320F244D304200260A06 /* Teams.swift in Sources */,
+				1FEF320F244D304200260A06 /* FavoriteTeams.swift in Sources */,
 				1F0F31E7244EB0EA00C1C308 /* StandingsInfo.swift in Sources */,
 				1F37333B2453D0D100818410 /* Statistics.swift in Sources */,
 				1F0F31F1244FF0F700C1C308 /* Arena.swift in Sources */,
+				1F08B9532456227300D364BB /* PlayerPhoto.swift in Sources */,
 				1F6D50DF244AA8E00052FD97 /* ViewController.swift in Sources */,
+				1F6F805C24560F9B00F52997 /* AllTeams.swift in Sources */,
+				1F5B6CFE2455630900B545A5 /* FavoriteTeam.swift in Sources */,
+				1F08B9572456251800D364BB /* PlayerPhotoCollectionViewCell.swift in Sources */,
+				1F08B9512456224900D364BB /* Player.swift in Sources */,
 				1F0F31E9244EB0F200C1C308 /* Standings.swift in Sources */,
 				1FEF320D244D2B1300260A06 /* APIKeys.swift in Sources */,
-				1F6D50F9244AC7790052FD97 /* AddTeamViewController.swift in Sources */,
 				1F0F31ED244F121600C1C308 /* CustomScheduleHeader.swift in Sources */,
 				1F6D50DB244AA8E00052FD97 /* AppDelegate.swift in Sources */,
 				1F0F31E5244EB0B900C1C308 /* Arenas.swift in Sources */,

@@ -8,13 +8,17 @@
 
 import UIKit
 import Foundation
+import Firebase
 
 class Players{
     var teamKey:String = ""
     var url: String = "https://api.sportsdata.io/v3/nba/stats/json/Players/ATL?key=\(APIKeys.sportsDataNBAKey)"
     var playerArray: [PlayerInfo] = []
+    var hooperArray: [Player] = []
+    var db: Firestore!
     
      init(teamKey: String){
+        db = Firestore.firestore()
         self.teamKey = teamKey
         self.url = "https://api.sportsdata.io/v3/nba/stats/json/Players/\(teamKey)?key=\(APIKeys.sportsDataNBAKey)"
         self.playerArray = []
@@ -38,6 +42,48 @@ class Players{
         var Experience: Int
         
     }
+    init() {
+           db = Firestore.firestore()
+       }
+       
+    func loadFaveData(favoriteTeam: FavoriteTeam, completed: @escaping ()->()){
+        guard favoriteTeam.documentID != "" else{
+            return
+        }
+       db.collection("faveTeams").document(favoriteTeam.documentID).collection("roster").addSnapshotListener { (querySnapshot, error) in
+          guard error == nil else {
+              print("***ERROR: adding the snapshot listener \(error!.localizedDescription)")
+              return completed()
+          }
+          self.hooperArray = []
+          //there are questSnapshot!.documents.count documents in the spots snapshot
+          for document in querySnapshot!.documents {
+              let player = Player(dictionary: document.data())
+              player.documentID = document.documentID
+              self.hooperArray.append(player)
+          }
+          completed()
+      }
+       }
+    /*func loadAllData(team: Team, completed: @escaping ()->()){
+        guard team.documentID != "" else{
+            return
+        }
+        db.collection("allTeams").document(team.documentID).collection("roster").addSnapshotListener { (querySnapshot, error) in
+            guard error == nil else {
+                print("***ERROR: adding the snapshot listener \(error!.localizedDescription)")
+                return completed()
+            }
+            self.hooperArray = []
+            //there are questSnapshot!.documents.count documents in the spots snapshot
+            for document in querySnapshot!.documents {
+                let player = Player(dictionary: document.data())
+                player.documentID = document.documentID
+                self.hooperArray.append(player)
+            }
+            completed()
+        }
+    }*/
 
     func getData(completed: @escaping ()->()){
         let urlString = url

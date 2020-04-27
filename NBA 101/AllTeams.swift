@@ -8,10 +8,13 @@
 
 import UIKit
 import Foundation
+import Firebase
 
-class Teams{
+class AllTeams{
     var url: String = "https://api.sportsdata.io/v3/nba/scores/json/teams?key=\(APIKeys.sportsDataNBAKey)"
     var teamArray: [TeamInfo] = []
+    var allTeamArray = [Team]() //why do we have to initialize it
+    var db: Firestore!
     
     private struct Returned: Codable {
         var TeamID: Int
@@ -22,6 +25,27 @@ class Teams{
         var PrimaryColor: String
         var SecondaryColor: String
         var WikipediaLogoUrl: String
+    }
+    
+    init() {
+        db = Firestore.firestore()
+    }
+    
+    func loadData(completed: @escaping ()->()){
+        db.collection("allTeams").addSnapshotListener { (querySnapshot, error) in
+            guard error == nil else {
+                print("***ERROR: adding the snapshot listener \(error!.localizedDescription)")
+                return completed()
+            }
+            self.allTeamArray = []
+            //there are questSnapshot!.documents.count documents in the spots snapshot
+            for document in querySnapshot!.documents {
+                let team = Team(dictionary: document.data())
+                team.documentID = document.documentID
+                self.allTeamArray.append(team)
+            }
+            completed()
+        }
     }
     
     func getData(completed: @escaping ()->()){

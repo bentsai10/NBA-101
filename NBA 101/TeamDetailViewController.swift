@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class TeamDetailViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
@@ -26,8 +27,8 @@ class TeamDetailViewController: UIViewController {
     @IBOutlet var monthScrollButtonCollection: [UIButton]!
     @IBOutlet weak var noGamesLabel: UILabel!
     
-    var teams: Teams!
-    var teamInfo: TeamInfo!
+    var teams: AllTeams!
+    var teamInfo: FavoriteTeam!
     var playerInfo: Players!
     var standingsInfo: Standings!
     var arenaInfo = Arenas()
@@ -42,6 +43,9 @@ class TeamDetailViewController: UIViewController {
     var arenaLatitude: CLLocationDegrees = 0.0
     var arenaLongitude: CLLocationDegrees = 0.0
     var arenaCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var favorited = true
+    var initialFaveCount: Int!
+    var index: Int!
     
     
     override func viewDidLoad() {
@@ -59,7 +63,7 @@ class TeamDetailViewController: UIViewController {
         standingsTableView.register(CustomScheduleHeader.self, forHeaderFooterViewReuseIdentifier: "StandingsHeader")
         
         if teamInfo == nil{
-            teamInfo = TeamInfo(TeamID: -1, Key: "", City: "", Name: "", StadiumID: -1, PrimaryColor: "",SecondaryColor: "", WikipediaLogoUrl: "")
+            teamInfo = FavoriteTeam()
         }
         updateUserInterface()
     }
@@ -107,10 +111,31 @@ class TeamDetailViewController: UIViewController {
         month = String(month.prefix(upTo: month.firstIndex(of: " ")!))
         monthScrollIndex = months.firstIndex(of: month)!
         monthLabel.textColor = teamSecondaryColor
+        /*playerInfo.loadFaveData(favoriteTeam: teamInfo) {
+            
+        }*/
         playerInfo.getData {
-            DispatchQueue.main.async{
-                self.setUpRosterPage()
+            if self.initialFaveCount == 0{
+                self.initialFaveCount += 1
+                for player in self.playerInfo.playerArray{
+                    let playerToBeSaved = Player(PlayerID: player.PlayerID, Team: player.Team, Jersey: player.Jersey, Position: player.Position, FirstName: player.FirstName, LastName: player.LastName, Height: player.Height, Weight: player.Weight, BirthDate: player.BirthDate, BirthCity: player.BirthCity, BirthState: player.BirthState, College: player.College, Salary: player.Salary, PhotoUrl: player.PhotoUrl, Experience: player.Experience, documentID: "")
+                    playerToBeSaved.saveFaveData(team: self.teamInfo) { (success) in
+                    }
+                    
+                }
+                self.playerInfo.loadFaveData(favoriteTeam: self.teamInfo) {
+                    DispatchQueue.main.async{
+                        self.setUpRosterPage()
+                    }
+                }
+            }else{
+                self.playerInfo.loadFaveData(favoriteTeam: self.teamInfo) {
+                    DispatchQueue.main.async{
+                        self.setUpRosterPage()
+                    }
+                }
             }
+            
         }
         standingsInfo.getData {
             DispatchQueue.main.async {
@@ -129,6 +154,7 @@ class TeamDetailViewController: UIViewController {
         }
     }
     func setUpRosterPage(){
+        self.playerInfo.hooperArray.sort(by: {$0.LastName < $1.LastName })
         self.playerInfo.playerArray.sort(by: {$0.LastName < $1.LastName })
         self.rosterTableView.reloadData()
     }
@@ -185,9 +211,26 @@ class TeamDetailViewController: UIViewController {
         if segue.identifier == "PlayerDetail"{
             let destination = segue.destination as! PlayerDetailViewController
             let selectedIndexPath = self.rosterTableView.indexPathForSelectedRow!
-            destination.player = playerInfo.playerArray[selectedIndexPath.row]
+            destination.playerInfo = playerInfo.playerArray[selectedIndexPath.row]
+            destination.player = playerInfo.hooperArray[selectedIndexPath.row]
             destination.team = teamInfo
             destination.statsInfo = Statistics(seasonKey: standingsInfo.seasonKey)
+        }else{
+            let destination = segue.destination as! ViewController
+            destination.initialFavesCount[index] = initialFaveCount
+            if !favorited{
+                var remove = -1
+                for index in 0 ..< destination.favoritedTeams.count{
+                    if destination.favoritedTeams[index].Name == teamInfo.Name{
+                        remove = index
+                        break
+                    }
+                }
+                destination.favoritedTeams.remove(at: remove)
+            }
+            DispatchQueue.main.async {
+                destination.teamTableView.reloadData()
+            }
         }
     }
     @IBAction func unwindFromPlayerDetail(segue: UIStoryboardSegue){
@@ -197,23 +240,24 @@ class TeamDetailViewController: UIViewController {
             rosterTableView.scrollToRow(at: selectedIndexPath, at: .bottom, animated: true)
         }
     }
+    
     @IBAction func rosterSortSCPressed(_ sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex{
         case 1:
-            playerInfo.playerArray.sort(by: {$0.Jersey < $1.Jersey })
+            playerInfo.hooperArray.sort(by: {$0.Jersey < $1.Jersey })
             DispatchQueue.main.async{
                 self.rosterTableView.reloadData()
             }
             
         case 0, 2:
-            playerInfo.playerArray.sort(by: {$0.LastName < $1.LastName })
+            playerInfo.hooperArray.sort(by: {$0.LastName < $1.LastName })
             DispatchQueue.main.async{
                 self.rosterTableView.reloadData()
             }
             
         case 3:
-            playerInfo.playerArray.sort(by: {$0.Position < $1.Position })
+            playerInfo.hooperArray.sort(by: {$0.Position < $1.Position })
             DispatchQueue.main.async{
                 self.rosterTableView.reloadData()
             }
@@ -344,7 +388,7 @@ extension TeamDetailViewController: UITableViewDelegate, UITableViewDataSource{
             }
             return currentMonthGames.count
         }else{
-           return playerInfo.playerArray.count
+           return playerInfo.hooperArray.count
         }
     }
     
@@ -357,7 +401,7 @@ extension TeamDetailViewController: UITableViewDelegate, UITableViewDataSource{
                 }else{
                     cell.playerImageView.image = UIImage()
             }
-                cell.playerNameLabel.text = "\(playerInfo.playerArray[indexPath.row].FirstName) \(playerInfo.playerArray[indexPath.row].LastName)"
+                cell.playerNameLabel.text = "\(playerInfo.playerArray[indexPath.row].FirstName) \(playerInfo.hooperArray[indexPath.row].LastName)"
             cell.playerNumberLabel.text = String(playerInfo.playerArray[indexPath.row].Jersey)
                 cell.playerPositionLabel.text = playerInfo.playerArray[indexPath.row].Position
                 

@@ -9,16 +9,15 @@
 import UIKit
 
 class AddTeamTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var logoImageView: UIImageView!
+    
+    @IBOutlet weak var teamNameLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    var link: AddTeamTableViewController?
+    
+    @IBAction func favoritedPressed(_ sender: UIButton) {
+        link?.editFavoriteTeams(cell: self)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
 }

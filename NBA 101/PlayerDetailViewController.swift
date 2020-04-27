@@ -25,32 +25,46 @@ class PlayerDetailViewController: UIViewController {
     @IBOutlet weak var playerStatsSegmentedControl: UISegmentedControl!
     @IBOutlet weak var playerStatsTableView: UITableView!
     
-    var player: PlayerInfo!
-    var team: TeamInfo!
+    var playerInfo: PlayerInfo!
+    var player:Player!
+    
+    var team: FavoriteTeam!
+    var photos: PlayerPhotos!
     var statsInfo: Statistics!
-    var playerStats = StatisticsInfo(PlayerID: 0, Games: 0, Rebounds: 0.0, Assists: 0.0, Steals: 0.0, Points: 0.0, BlockedShots: 0.0)
+    var playerStats:StatisticsInfo!
+    var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if player == nil{
-            player = PlayerInfo(PlayerID: 0,Team: "", Jersey: -1, Position: "", FirstName: "", LastName: "", Height: -1, Weight: -1, BirthDate: nil, BirthCity: nil, BirthState: nil, College: nil, Salary: nil, PhotoUrl: "", Experience: -1)
+        if playerInfo == nil{
+            playerInfo = PlayerInfo(PlayerID: 9, Team: "", Jersey: 0, Position: "", FirstName: "", LastName: "", Height: 0, Weight: 0, BirthDate: nil, BirthCity: nil, BirthState: nil, College: nil, Salary: nil, PhotoUrl: "", Experience: 0)
         }
         if team == nil{
-            team = TeamInfo(TeamID: -1, Key: "", City: "", Name: "", StadiumID: -1, PrimaryColor: "", SecondaryColor: "", WikipediaLogoUrl: "")
+            team = FavoriteTeam()
         }
+        photos = PlayerPhotos()
         
+        playerPhotoCollectionView.delegate = self
+        playerPhotoCollectionView.dataSource = self
         playerStatsTableView.delegate = self
         playerStatsTableView.dataSource = self
+        imagePicker.delegate = self
 
         statsInfo.getData {
             DispatchQueue.main.async {
                 for playerStats in self.statsInfo.statsArray{
-                    if playerStats.PlayerID == self.player.PlayerID{
+                    if self.playerInfo.PlayerID == playerStats.PlayerID{
                         self.playerStats = playerStats
                         break
                     }
                 }
                 self.playerStatsTableView.reloadData()
+            }
+        }
+        photos.loadData(team: team, player: player) {
+            DispatchQueue.main.async {
+                
+                self.playerPhotoCollectionView.reloadData()
             }
         }
         updateUserInterface()
@@ -65,28 +79,28 @@ class PlayerDetailViewController: UIViewController {
         var modifiedImageFileName = (logoOriginalImageName.suffix(from: logoOriginalImageName.lastIndex(of: "/")!))
         modifiedImageFileName.removeFirst()
         teamImageView.image = UIImage(named: String(modifiedImageFileName))
-        if let imageURL = URL(string: player.PhotoUrl){
+        if let imageURL = URL(string: playerInfo.PhotoUrl){
                 playerImageView.load(url: imageURL)
             }else{
                 playerImageView.image = UIImage()
         }
-        playerNameLabel.text = "\(player.FirstName) \(player.LastName)"
-        playerNumberLabel.text = "#\(String(player.Jersey))"
-        playerPositionLabel.text = player.Position
-        playerHeightLabel.text = "\(player.Height / 12)'\(player.Height % 12)"
-        playerWeightLabel.text = "\(player.Weight)"
-        playerExperienceLabel.text = "\(player.Experience)"
+        playerNameLabel.text = "\(playerInfo.FirstName) \(playerInfo.LastName)"
+        playerNumberLabel.text = "#\(String(playerInfo.Jersey))"
+        playerPositionLabel.text = playerInfo.Position
+        playerHeightLabel.text = "\(playerInfo.Height / 12)'\(playerInfo.Height % 12)"
+        playerWeightLabel.text = "\(playerInfo.Weight)"
+        playerExperienceLabel.text = "\(playerInfo.Experience)"
         var salaryString = ""
-        if player.Salary == nil{
+        if playerInfo.Salary == nil{
             salaryString = "N/A"
         }else{
-            salaryString = formatSalary(salary: player.Salary!)
+            salaryString = formatSalary(salary: playerInfo.Salary!)
         }
         playerSalaryLabel.text = salaryString
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
-        let date = player.BirthDate ?? "0000-01-01T00:00:00"
+        let date = playerInfo.BirthDate ?? "0000-01-01T00:00:00"
         if date == "0000-01-01T00:00:00"{
             playerBirthdayLabel.text = "N/A"
         }else{
@@ -95,21 +109,21 @@ class PlayerDetailViewController: UIViewController {
             let bdayString = dateFormatter.string(from: updatedDate!)
             playerBirthdayLabel.text = bdayString
         }
-        if player.BirthCity == nil && player.BirthState == nil{
+        if playerInfo.BirthCity == nil && playerInfo.BirthState == nil{
             playerHometownLabel.text = "N/A"
         }else{
-            if player.BirthCity == nil{
-                playerHometownLabel.text = "\(player.BirthState!)"
-            }else if player.BirthState == nil{
-                playerHometownLabel.text = "\(player.BirthCity!)"
+            if playerInfo.BirthCity == nil{
+                playerHometownLabel.text = "\(playerInfo.BirthState!)"
+            }else if playerInfo.BirthState == nil{
+                playerHometownLabel.text = "\(playerInfo.BirthCity!)"
             }else{
-                playerHometownLabel.text = "\(player.BirthCity!), \(player.BirthState!)"
+                playerHometownLabel.text = "\(playerInfo.BirthCity!), \(playerInfo.BirthState!)"
             }
         }
-        if player.College == nil{
+        if playerInfo.College == nil{
             playerCollegeLabel.text = "N/A"
         }else{
-            playerCollegeLabel.text = player.College!
+            playerCollegeLabel.text = playerInfo.College!
         }
     }
     func formatSalary(salary: Int) -> String{
@@ -122,6 +136,42 @@ class PlayerDetailViewController: UIViewController {
             return "\(millions),\(thousands),\(ones)"
         }
     }
+    func cameraOrLibraryAlert(){
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default){_ in
+            self.accessCamera()
+        }
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default){_ in
+            self.accessLibrary()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cameraAction)
+        alertController.addAction(photoLibraryAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    @IBAction func photoButtonPressed(_ sender: UIButton) {
+        cameraOrLibraryAlert()
+    }
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension PlayerDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.photoArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PlayerPhotoCollectionViewCell
+        cell.photo = photos.photoArray[indexPath.row]
+        return cell
+    }
+    
 }
 
 extension PlayerDetailViewController: UITableViewDelegate, UITableViewDataSource{
@@ -131,7 +181,7 @@ extension PlayerDetailViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = playerStatsTableView.dequeueReusableCell(withIdentifier: "StatsCell", for: indexPath) as! StatisticsTableViewCell
-        if playerStats.Points == 0.0{
+        if playerStats == nil{
             cell.pointsPerGameLabel.text = "Loading..."
             cell.assistsPerGameLabel.text = ""
             cell.reboundsPerGameLabel.text = ""
@@ -150,5 +200,35 @@ extension PlayerDetailViewController: UITableViewDelegate, UITableViewDataSource
             cell.blocksPerGameLabel.text = "\(blocks)"
         }
         return cell
+    }
+}
+extension PlayerDetailViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let photo = PlayerPhoto()
+        photo.image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        dismiss(animated: true) {
+            photo.saveData(team: self.team , player:self.player){ (success) in
+                if success{
+                    self.photos.photoArray.append(photo)
+                    self.playerPhotoCollectionView.reloadData()
+                }
+            }
+            self.playerPhotoCollectionView.reloadData()
+        }
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    func accessLibrary(){
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    func accessCamera(){
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            imagePicker.sourceType = .camera
+            present(imagePicker, animated: true, completion: nil)
+        }else{
+            showAlert(title: "Camera Not Available", message: "There is no camera available.")
+        }
     }
 }
