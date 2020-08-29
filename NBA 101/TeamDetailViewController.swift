@@ -245,19 +245,19 @@ class TeamDetailViewController: UIViewController {
         
         switch sender.selectedSegmentIndex{
         case 1:
-            playerInfo.hooperArray.sort(by: {$0.Jersey < $1.Jersey })
+            playerInfo.playerArray.sort(by: {$0.Jersey < $1.Jersey })
             DispatchQueue.main.async{
                 self.rosterTableView.reloadData()
             }
             
         case 0, 2:
-            playerInfo.hooperArray.sort(by: {$0.LastName < $1.LastName })
+            playerInfo.playerArray.sort(by: {$0.LastName < $1.LastName })
             DispatchQueue.main.async{
                 self.rosterTableView.reloadData()
             }
             
         case 3:
-            playerInfo.hooperArray.sort(by: {$0.Position < $1.Position })
+            playerInfo.playerArray.sort(by: {$0.Position < $1.Position })
             DispatchQueue.main.async{
                 self.rosterTableView.reloadData()
             }
@@ -401,7 +401,7 @@ extension TeamDetailViewController: UITableViewDelegate, UITableViewDataSource{
                 }else{
                     cell.playerImageView.image = UIImage()
             }
-                cell.playerNameLabel.text = "\(playerInfo.playerArray[indexPath.row].FirstName) \(playerInfo.hooperArray[indexPath.row].LastName)"
+                cell.playerNameLabel.text = "\(playerInfo.playerArray[indexPath.row].FirstName) \(playerInfo.playerArray[indexPath.row].LastName)"
             cell.playerNumberLabel.text = String(playerInfo.playerArray[indexPath.row].Jersey)
                 cell.playerPositionLabel.text = playerInfo.playerArray[indexPath.row].Position
                 
